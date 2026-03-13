@@ -1,0 +1,11 @@
+H:\Devl\EmpDB\bin\Debug\EmpDB.exe.config
+H:\Devl\EmpDB\bin\Debug\EmpDB.exe
+H:\Devl\EmpDB\bin\Debug\EmpDB.pdb
+H:\Devl\EmpDB\obj\Debug\EmpDB.csproj.AssemblyReference.cache
+H:\Devl\EmpDB\obj\Debug\EmpDB.csproj.CoreCompileInputs.cache
+H:\Devl\EmpDB\obj\Debug\EmpDB.exe
+H:\Devl\EmpDB\obj\Debug\EmpDB.pdb
+C:\devl\EmpDB2\EmpDB\obj\Debug\EmpDB.csproj.AssemblyReference.cache
+C:\devl\EmpDB2\EmpDB\obj\Debug\EmpDB.csproj.CoreCompileInputs.cache
+C:\devl\EmpDB2\EmpDB\obj\Debug\EmpDB.exe
+C:\devl\EmpDB2\EmpDB\obj\Debug\EmpDB.pdb

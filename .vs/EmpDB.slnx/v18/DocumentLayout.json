@@ -1,0 +1,159 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\devl\\EmpDB2\\EmpDB\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2D2712AA-EF4E-42FB-BC6F-DEA701D47488}|EmpDB.csproj|C:\\devl\\EmpDB2\\EmpDB\\basepluscommissionemployee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D2712AA-EF4E-42FB-BC6F-DEA701D47488}|EmpDB.csproj|solutionrelative:basepluscommissionemployee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D2712AA-EF4E-42FB-BC6F-DEA701D47488}|EmpDB.csproj|c:\\devl\\empdb2\\empdb\\dbapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D2712AA-EF4E-42FB-BC6F-DEA701D47488}|EmpDB.csproj|solutionrelative:dbapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D2712AA-EF4E-42FB-BC6F-DEA701D47488}|EmpDB.csproj|C:\\devl\\EmpDB2\\EmpDB\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D2712AA-EF4E-42FB-BC6F-DEA701D47488}|EmpDB.csproj|solutionrelative:employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D2712AA-EF4E-42FB-BC6F-DEA701D47488}|EmpDB.csproj|C:\\devl\\EmpDB2\\EmpDB\\salariedemployee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D2712AA-EF4E-42FB-BC6F-DEA701D47488}|EmpDB.csproj|solutionrelative:salariedemployee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D2712AA-EF4E-42FB-BC6F-DEA701D47488}|EmpDB.csproj|C:\\devl\\EmpDB2\\EmpDB\\hourlyemployee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D2712AA-EF4E-42FB-BC6F-DEA701D47488}|EmpDB.csproj|solutionrelative:hourlyemployee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D2712AA-EF4E-42FB-BC6F-DEA701D47488}|EmpDB.csproj|C:\\devl\\EmpDB2\\EmpDB\\commissionemployee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D2712AA-EF4E-42FB-BC6F-DEA701D47488}|EmpDB.csproj|solutionrelative:commissionemployee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D2712AA-EF4E-42FB-BC6F-DEA701D47488}|EmpDB.csproj|C:\\devl\\EmpDB2\\EmpDB\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D2712AA-EF4E-42FB-BC6F-DEA701D47488}|EmpDB.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{4a9b7e51-aa16-11d0-a8c5-00a0c921a4d2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SalariedEmployee.cs",
+              "DocumentMoniker": "C:\\devl\\EmpDB2\\EmpDB\\SalariedEmployee.cs",
+              "RelativeDocumentMoniker": "SalariedEmployee.cs",
+              "ToolTip": "C:\\devl\\EmpDB2\\EmpDB\\SalariedEmployee.cs",
+              "RelativeToolTip": "SalariedEmployee.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T18:37:38.88Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HourlyEmployee.cs",
+              "DocumentMoniker": "C:\\devl\\EmpDB2\\EmpDB\\HourlyEmployee.cs",
+              "RelativeDocumentMoniker": "HourlyEmployee.cs",
+              "ToolTip": "C:\\devl\\EmpDB2\\EmpDB\\HourlyEmployee.cs",
+              "RelativeToolTip": "HourlyEmployee.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T18:37:38.172Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CommissionEmployee.cs",
+              "DocumentMoniker": "C:\\devl\\EmpDB2\\EmpDB\\CommissionEmployee.cs",
+              "RelativeDocumentMoniker": "CommissionEmployee.cs",
+              "ToolTip": "C:\\devl\\EmpDB2\\EmpDB\\CommissionEmployee.cs",
+              "RelativeToolTip": "CommissionEmployee.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T18:37:37.12Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BasePlusCommissionEmployee.cs",
+              "DocumentMoniker": "C:\\devl\\EmpDB2\\EmpDB\\BasePlusCommissionEmployee.cs",
+              "RelativeDocumentMoniker": "BasePlusCommissionEmployee.cs",
+              "ToolTip": "C:\\devl\\EmpDB2\\EmpDB\\BasePlusCommissionEmployee.cs",
+              "RelativeToolTip": "BasePlusCommissionEmployee.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T18:37:36.373Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "C:\\devl\\EmpDB2\\EmpDB\\Employee.cs",
+              "RelativeDocumentMoniker": "Employee.cs",
+              "ToolTip": "C:\\devl\\EmpDB2\\EmpDB\\Employee.cs",
+              "RelativeToolTip": "Employee.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAuwBMAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T18:31:22.063Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Dbapp.cs",
+              "DocumentMoniker": "C:\\devl\\EmpDB2\\EmpDB\\Dbapp.cs",
+              "RelativeDocumentMoniker": "Dbapp.cs",
+              "ToolTip": "C:\\devl\\EmpDB2\\EmpDB\\Dbapp.cs",
+              "RelativeToolTip": "Dbapp.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAowCwAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T18:50:41.677Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\devl\\EmpDB2\\EmpDB\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\devl\\EmpDB2\\EmpDB\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T18:26:40.19Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
