@@ -1,12 +1,138 @@
-﻿using System;
+////////////////////////////////////////////////////////////////////////////
+// TINFO 200 A, Winter 2026
+// UWTacoma SET, Jason Chang
+// 2026-03-13
+///////////////////////////////////////////////////////////////////////////////
+// Change History
+// Date ------- Developer -- Description
+// 2026-03-13  Chang       Initial creation from StudentDB template
+// 2026-03-13  Chang       CRUD operations and payroll processing
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace EmpDB
 {
     internal class Dbapp
     {
+		// Runtime storage of employee objects
+		private List<Employee> employees = new List<Employee>();
+
+		// File names for data persistene
+		private const string EMPLOYEE_INPUT_FILE = "employess_input.txt";
+        private const string EMPLOYEE_OUTPUT_FILE = "employees_output.txt";
+        public Dbapp()
+        {
+            ReadEmployeeDataFromInputFile(); 
+        }
+
+		private void ReadEmployeeDataFromInputFile()
+		{
+            StreamReader inFile = new StreamReader(EMPLOYEE_INPUT_FILE);
+            string employeeType = string.Empty;
+			while ((employeeType = inFile.ReadLine()) != null)
+			{
+				string first = inFile.ReadLine();
+				string last = inFile.ReadLine();
+				string email = inFile.ReadLine();
+				string ssn = inFile.ReadLine();
+
+				if (employeeType == "SalariedEmployee")
+				{
+					decimal weeklySalary = decimal.Parse(inFile.ReadLine());
+					Employee salaried = new SalariedEmployee(first, last, ssn, email, weeklySalary);
+					employees.Add(salaried);
+				}
+				else if (employeeType == "HourlyEmployee")
+				{
+					decimal wage = decimal.Parse(inFile.ReadLine());
+					decimal hours = decimal.Parse(inFile.ReadLine());
+					Employee hourly = new HourlyEmployee(first, last, ssn, email, wage, hours);
+					employees.Add(hourly);
+				}
+				else if (employeeType == "CommissionEmployee")
+				{
+					decimal grossSales = decimal.Parse(inFile.ReadLine());
+					decimal commissionRate = decimal.Parse(inFile.ReadLine());
+					Employee commission = new CommissionEmployee(first, last, ssn, email, grossSales, commissionRate);
+					employees.Add(commission);
+				}
+				else if (employeeType == "BasePlusCommissionEmployee")
+				{
+					decimal grossSales = decimal.Parse(inFile.ReadLine());
+					decimal commissionRate = decimal.Parse(inFile.ReadLine());
+					decimal baseSalary = decimal.Parse(inFile.ReadLine());
+					Employee bpCommission = new BasePlusCommissionEmployee(first, last, ssn, email,
+						grossSales, commissionRate, baseSalary);
+					employees.Add(bpCommission);
+				}
+				else
+				{
+					Console.WriteLine($"ERROR: {employeeType} is not a valid employee type.");
+				}
+			}
+			inFile.Close();
+
+			Console.WriteLine($"Loaded {employees.Count} employees from file.");
+		}
+
+		public void GoDataBase()
+        {
+			while (true)
+			{
+				DisplayMainMenu();
+				char selection = GetUserSelection();
+
+				switch (selection)
+				{
+					case 'C':
+					case 'c':
+						CreateNewEmployeeRecord();
+						break;
+					case 'F':
+					case 'f':
+						string email = string.Empty;
+						FindEmployeeRecord(out email);
+						break;
+					case 'P':
+					case 'p':
+						PrintAllRecords();
+						break;
+					case 'R':
+					case 'r':
+						ProcessPayroll();
+						break;
+					case 'U':
+					case 'u':
+						UpdateEmployeeRecord();
+						break;
+					case 'D':
+					case 'd':
+						DeleteEmployeeRecord();
+						break;
+					case 'E':
+					case 'e':
+						SaveEmployeeDataToOutputFile();
+						Environment.Exit(0);
+						break;
+					case 'Q':
+					case 'q':
+						Environment.Exit(0);
+						break;
+					case 'S':
+					case 's':
+						SaveEmployeeDataToOutputFile();
+						break;
+					default:
+						Console.Write($"\n\nERROR: {selection} is not a valid choice. Select again: ");
+						break;
+				}
+			}
+		}
     }
 }
