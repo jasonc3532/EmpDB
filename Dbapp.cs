@@ -301,7 +301,7 @@ namespace EmpDB
 		{
 			string email = string.Empty;
 			Employee emp = FindEmployeeRecord(out email);
-			if (emp != null)
+			if (emp == null)
 			{
 				Console.WriteLine("Cannot Delete Employee -- Not found");
 				return;
