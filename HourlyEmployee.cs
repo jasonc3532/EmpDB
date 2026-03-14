@@ -15,9 +15,9 @@ namespace EmpDB
 
         // five-parameter constructor
         public HourlyEmployee(string firstName, string lastName,
-           string socialSecurityNumber, decimal hourlyWage,
+           string socialSecurityNumber, string email, decimal hourlyWage,
            decimal hoursWorked)
-           : base(firstName, lastName, socialSecurityNumber)
+           : base(firstName, lastName, socialSecurityNumber, email)
         {
             Wage = hourlyWage; // validate hourly wage 
             Hours = hoursWorked; // validate hours worked 
@@ -74,11 +74,25 @@ namespace EmpDB
             }
         }
 
-        // return string representation of HourlyEmployee object
-        public override string ToString() =>
-           $"hourly employee: {base.ToString()}\n" +
-           $"hourly wage: {Wage:C}\nhours worked: {Hours:F2}";
-    }
-}
+		// return string representation of HourlyEmployee object
+		public override string ToString()
+		{
+			string str = base.ToString();
+			str += $"  Type: Hourly Employee\n";
+			str += $"Hourly Wage: {Wage:C}\n";
+			str += $" Hours Worked: {Hours:F2}\n";
+			str += $"   Pay Amount: {Earnings():C}\n";
+			return str;
+		}
 
+		public override string ToStringForOutputFile()
+		{
+			string str = this.GetType().Name + "\n";
+			str += base.ToStringForOutputFile() + "\n";
+			str += $"{Wage:F2}\n";
+			str += $"{Hours:F2}";
+			return str;
+		}
+	}
+}
 
