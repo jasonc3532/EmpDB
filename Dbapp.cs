@@ -134,5 +134,27 @@ namespace EmpDB
 				}
 			}
 		}
+		// Find operation will search the current list for the resence of a given email
+		// address and return the Employee record if found, other wise return null.
+		private void FindEmployeeRecord(out string email)
+		{
+			throw new NotImplementedException();
+		}
+		// Deletes an existing employee record from DB
+		// Uses email as primary key.
+		private void DeleteEmployeeRecord()
+		{
+			string email = string.Empty;
+			Employee emp = FindEmployeeRecord(out email);
+			if (emp != null)
+			{
+				Console.WriteLine("Cannot Delete Employee -- Not found");
+				return;
+			}
+
+			employees.Remove(emp);
+
+			Console.WriteLine($"Employee with email {email} deleted");
+		}
     }
 }
