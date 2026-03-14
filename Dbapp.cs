@@ -24,14 +24,16 @@ namespace EmpDB
 		// Runtime storage of employee objects
 		private List<Employee> employees = new List<Employee>();
 
-		// File names for data persistene
+		// File names for data persistenece
 		private const string EMPLOYEE_INPUT_FILE = "employees_input.txt";
         private const string EMPLOYEE_OUTPUT_FILE = "employees_output.txt";
         public Dbapp()
         {
             ReadEmployeeDataFromInputFile(); 
         }
-
+		
+		//iterates through input file to populate buffer. Check here first if anything breaks after making 
+		//manual changes to inputfile.txt, which btw needs to be in same folder as executable binary
 		private void ReadEmployeeDataFromInputFile()
 		{
             StreamReader inFile = new StreamReader(EMPLOYEE_INPUT_FILE);
@@ -93,7 +95,9 @@ namespace EmpDB
 
 			Console.WriteLine($"Loaded {employees.Count} employees from file.");
 		}
-
+		
+		//runs through functionality from user selection in the initial menu
+		//interact with all CRUD in system through this function
 		public void GoDataBase()
         {
 			while (true)
@@ -148,11 +152,27 @@ namespace EmpDB
 			}
 		}
 
-        private void SaveEmployeeDataToOutputFile()
+        //saves ccurrent list buffer to output file, in "pretty" format
+		//not in data format like the one needed in inputfile
+		private void SaveEmployeeDataToOutputFile()
         {
-            throw new NotImplementedException();
-        }
+            //make the  file and associate objects
+            StreamWriter outFile = new StreamWriter(EMPLOYEE_OUTPUT_FILE);
 
+            //use the file object same as any oher output stream
+            foreach (Employee emp in employees)
+            {
+                outFile.Write(emp.ToString());
+                Console.WriteLine(emp);
+            }
+
+            //close file refrence - release resource
+            outFile.Close();
+
+        }
+		
+		//checks for record using findemployeerecord, if exists, deletes it using deletemployee record
+		//then runs through create student record to replace everything except for the email
         private void UpdateEmployeeRecord()
         {
             //use the util method find to determine that the employee to add
@@ -178,17 +198,27 @@ namespace EmpDB
         {
             throw new NotImplementedException();
         }
-        private void PrintAllRecords()
+        
+		//output all student records to console
+		//very simple and just reads from list memory buffer
+		private void PrintAllRecords()
         {
-            throw new NotImplementedException();
+            foreach (Employee emp in employees)
+            {
+                Console.WriteLine("++++++STUDENT RECORD++++++");
+                Console.WriteLine(emp);
+            }
         }
 
+		//menu stuff
         private char GetUserSelection()
         {
 			ConsoleKeyInfo key = Console.ReadKey();
 			return key.KeyChar;
         }
-
+		
+		//just an ascii menu to show user options
+		//does not take any inputs 
         private void DisplayMainMenu()
         {
 			Console.Write(@"
@@ -208,7 +238,8 @@ namespace EmpDB
     User selection: ");
         }
 
-        //can only be done if student is aready in db
+        //can only be done if student is aready in db, uses findemployeerecord to check and aborts
+		//if it exists already through email
         private void CreateNewEmployeeRecord()
         {
             //throw new NotImplementedException();
