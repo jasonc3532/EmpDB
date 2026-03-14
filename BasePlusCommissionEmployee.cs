@@ -4,6 +4,14 @@
 //* Pearson Education, Inc. All Rights Reserved.                           *
 // Fig. 12.8: BasePlusCommissionEmployee.cs
 // BasePlusCommissionEmployee class that extends CommissionEmployee.
+////////////////////////////////////////////////////////////////////////////
+// TINFO 200 A, Winter 2026
+// UWTacoma SET, Jason Chang
+// 2026-03-13
+///////////////////////////////////////////////////////////////////////////////
+// Change History
+// Date ------- Developer -- Description
+// 2026-03-13  Chang       
 using System;
 
 namespace EmpDB
@@ -14,10 +22,10 @@ namespace EmpDB
 
         // six-parameter constructor
         public BasePlusCommissionEmployee(string firstName, string lastName,
-           string socialSecurityNumber, decimal grossSales,
+           string socialSecurityNumber, string email, decimal grossSales,
            decimal commissionRate, decimal baseSalary)
-           : base(firstName, lastName, socialSecurityNumber,
-                grossSales, commissionRate)
+           : base(firstName, lastName, socialSecurityNumber, email,
+				grossSales, commissionRate)
         {
             BaseSalary = baseSalary; // validates base salary
         }
@@ -45,9 +53,21 @@ namespace EmpDB
         // calculate earnings
         public override decimal Earnings() => BaseSalary + base.Earnings();
 
-        // return string representation of BasePlusCommissionEmployee
-        public override string ToString() =>
-           $"base-salaried {base.ToString()}\nbase salary: {BaseSalary:C}";
-    }
+		// return string representation of BasePlusCommissionEmployee
+		public override string ToString()
+		{
+			string str = base.ToString();
+			str += $"Base Salary: {BaseSalary:C}\n";
+			return str;
+		}
+
+		public override string ToStringForOutputFile()
+		{
+			string str = this.GetType().Name + "\n";
+			str += base.ToStringForOutputFile() + "\n";
+			str += $"{baseSalary:F2}";
+			return str;
+		}
+	}
 }
 
