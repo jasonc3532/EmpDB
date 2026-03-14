@@ -6,7 +6,6 @@ chucks@uw.edu
 3000.24
 2
 1,153
-
 HourlyEmployee
 Hasan
 Hourson
@@ -15,22 +14,20 @@ hasan@uw.edu
 22.20
 43.5
 99.9
-
 CommissionEmployee
 Mohammad
 Commisianti
 mohammad@uw.edu
 123-123-1234
 10,000.20
-12
+.12
 1,200.03
-
 BasePlusCommissionEmployee
 Sandra
 Base o'Comi
 sanda@uw.edu
 123-123-1234
 5000.23
-12
+.13
 4000.24
 400

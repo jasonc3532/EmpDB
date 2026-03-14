@@ -46,21 +46,31 @@ namespace EmpDB
 				if (employeeType == "SalariedEmployee")
 				{
 					decimal weeklySalary = decimal.Parse(inFile.ReadLine());
+					//may not be necessary for payable
+					int workedWeeks = int.Parse(inFile.ReadLine());
+					//may  not be necessary for Ipayable but adding anyway for now
+					decimal amountOwed= decimal.Parse(inFile.ReadLine());
 					Employee salaried = new SalariedEmployee(first, last, ssn, email, weeklySalary);
 					employees.Add(salaried);
 				}
 				else if (employeeType == "HourlyEmployee")
 				{
+					//pay per hour
 					decimal wage = decimal.Parse(inFile.ReadLine());
+					//hours total worked before pay period
 					decimal hours = decimal.Parse(inFile.ReadLine());
-					Employee hourly = new HourlyEmployee(first, last, ssn, email, wage, hours);
+					//not sure if needed yet
+                    decimal amountOwed = decimal.Parse(inFile.ReadLine());
+                    Employee hourly = new HourlyEmployee(first, last, ssn, email, wage, hours);
 					employees.Add(hourly);
 				}
 				else if (employeeType == "CommissionEmployee")
 				{
 					decimal grossSales = decimal.Parse(inFile.ReadLine());
 					decimal commissionRate = decimal.Parse(inFile.ReadLine());
-					Employee commission = new CommissionEmployee(first, last, ssn, email, grossSales, commissionRate);
+					//not sure if needed yet
+                    decimal amountOwed = decimal.Parse(inFile.ReadLine());
+                    Employee commission = new CommissionEmployee(first, last, ssn, email, grossSales, commissionRate);
 					employees.Add(commission);
 				}
 				else if (employeeType == "BasePlusCommissionEmployee")
@@ -68,7 +78,9 @@ namespace EmpDB
 					decimal grossSales = decimal.Parse(inFile.ReadLine());
 					decimal commissionRate = decimal.Parse(inFile.ReadLine());
 					decimal baseSalary = decimal.Parse(inFile.ReadLine());
-					Employee bpCommission = new BasePlusCommissionEmployee(first, last, ssn, email,
+					//not sure if needed yet
+                    decimal amountOwed = decimal.Parse(inFile.ReadLine());
+                    Employee bpCommission = new BasePlusCommissionEmployee(first, last, ssn, email,
 						grossSales, commissionRate, baseSalary);
 					employees.Add(bpCommission);
 				}
