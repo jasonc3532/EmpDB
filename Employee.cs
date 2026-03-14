@@ -30,6 +30,7 @@ namespace EmpDB
             FirstName = firstName;
             LastName = lastName;
             SocialSecurityNumber = socialSecurityNumber;
+			EmailAddress = email;
         }
 
 		// return string representation of Employee object, using properties
