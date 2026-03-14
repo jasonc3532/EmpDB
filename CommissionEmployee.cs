@@ -1,4 +1,4 @@
-﻿////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
 //
 //* (C) Copyright 1992-2017 by Deitel & Associates, Inc. and               *
 //* Pearson Education, Inc. All Rights Reserved.                           *
@@ -15,9 +15,9 @@ namespace EmpDB
 
         // five-parameter constructor
         public CommissionEmployee(string firstName, string lastName,
-           string socialSecurityNumber, decimal grossSales,
+           string socialSecurityNumber, string email, decimal grossSales,
            decimal commissionRate)
-           : base(firstName, lastName, socialSecurityNumber)
+           : base(firstName, lastName, socialSecurityNumber, email)
         {
             GrossSales = grossSales; // validates gross sales
             CommissionRate = commissionRate; // validates commission rate
@@ -64,12 +64,24 @@ namespace EmpDB
         // calculate earnings; override abstract method Earnings in Employee
         public override decimal Earnings() => CommissionRate * GrossSales;
 
-        // return string representation of CommissionEmployee object
-        public override string ToString() =>
-           $"commission employee: {base.ToString()}\n" +
-           $"gross sales: {GrossSales:C}\n" +
-           $"commission rate: {CommissionRate:F2}";
-    }
-}
+		// return string representation of CommissionEmployee object
+		public override string ToString()
+		{
+			string str = base.ToString();
+			str += $"  Type: Commission Employee\n";
+			str += $"Gross Sales: {GrossSales:C}\n";
+			str += $"Commission Rate: {CommissionRate:F2}\n";
+			return str;
+		}
 
+		public override string ToStringForOutputFile()
+		{
+			string str = this.GetType().Name + "\n";
+			str += base.ToStringForOutputFile() + "\n";
+			str += $"{GrossSales:F2}\n";
+			str += $"{CommissionRate:F2}";
+			return str;
+		}
+	}
+}
 
