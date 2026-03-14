@@ -134,9 +134,134 @@ namespace EmpDB
 				}
 			}
 		}
-		// Find operation will search the current list for the resence of a given email
-		// address and return the Employee record if found, other wise return null.
-		private Employee FindEmployeeRecord(out string email)
+
+        private void SaveEmployeeDataToOutputFile()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void UpdateEmployeeRecord()
+        {
+            //throw new NotImplementedException();
+            //throw new NotImplementedException();
+            Console.WriteLine();
+            Console.WriteLine("input email of account to Update/Delete: ");
+            string emailKey = Console.ReadLine();
+            //iterate through list and find string studentemail
+            //linq info found  in https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.firstordefault?view=net-10.0&redirectedfrom=MSDN#System_Linq_Enumerable_FirstOrDefault__1_System_Collections_Generic_IEnumerable___0__
+            Student studentToUpdate = students.FirstOrDefault(emailindex => emailindex.EmailAddress == emailKey);
+            //if email matched and found  in list
+            if (studentToUpdate != null)
+            {
+                //delete by default since both operation types require it
+                Console.WriteLine($"Found email {emailKey}");
+                students.Remove(studentToUpdate);
+                Console.WriteLine($"removed account {emailKey} from database! ");
+                //if it was update option and not delete
+                if (flag == "update")
+                {
+                    //run new  instance of database
+                    CreateNewStudentRecord();
+                    Console.WriteLine($"Sucessfully updated {emailKey}! ");
+                }
+
+            }//do nothing if no email match  in list
+            else
+            {
+                Console.WriteLine("email not  found");
+            }
+        }
+
+        private void ProcessPayroll()
+        {
+            throw new NotImplementedException();
+        }
+        private void PrintAllRecords()
+        {
+            throw new NotImplementedException();
+        }
+
+        private char GetUserSelection()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void DisplayMainMenu()
+        {
+            throw new NotImplementedException();
+        }
+
+        //can only be done if student is aready in db
+        private void CreateNewEmployeeRecord()
+        {
+            //throw new NotImplementedException();
+
+            //use the util method find to determine that the employee to add
+            //is not already in the database- if they are print an error mesage in return
+            string email = string.Empty;
+            Employee emp = FindEmployeeRecord(out email);
+
+            //if no record found in inputfile
+            if (emp == null)
+            {
+                //employee is NOT in the database - we can add them
+                Console.WriteLine($"Createing new employee record for email: {email}");
+                Console.WriteLine("enter First name: ");
+                string firstName = Console.ReadLine();
+                Console.WriteLine("enter Last name: ");
+                string lastName = Console.ReadLine();
+                Console.Write("enter social security number: ");
+                int ssn = int.Parse(Console.ReadLine());
+
+                Console.Write("[S]alary, [H]ourly, [C]omission, or comission [P]lus base pay ");
+                char employeeType = GetUserSelection();
+
+                if (studentType == 'U' || studentType == 'u')
+                {
+                    //
+                    Console.WriteLine();
+                    Console.WriteLine("[1]freshman [2] sophomore [3] junior [4] senior");
+                    Console.WriteLine("Enter year rank in school: ");
+                    YearRank rank = (YearRank)int.Parse(Console.ReadLine());
+                    //create the nuew student objec and add it to list
+                    //2 loc way to make a stud insert
+                    Console.Write("enter major: ");
+                    string major = Console.ReadLine();
+
+                    stu = new Undergrad(firstName, lastName, gpa, email, rank, major);
+                    students.Add(stu);
+
+                }
+                else if (studentType == 'G' || studentType == 'g')
+                {
+                    //enter credit hours
+                    //decimal credit is decimal parse console readline
+                    Console.Write("enter credit hours: ");
+                    decimal credit = decimal.Parse(Console.ReadLine());
+                    Console.Write("enter advisor name: ");
+                    string advisor = Console.ReadLine();
+
+                    stu = new GradStudent(firstName, lastName, gpa, email, credit, advisor);
+
+                    students.Add(stu);
+                }
+                else
+                {
+                    Console.WriteLine($"Error: Student with email {email} already exists");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"error: student with email {email} alread exists cannot create duplicate record.");
+            }
+
+
+        }
+
+
+        // Find operation will search the current list for the resence of a given email
+        // address and return the Employee record if found, other wise return null.
+        private Employee FindEmployeeRecord(out string email)
 		{
 			Console.WriteLine("\nENTER the email address to serach for: ");
 			email = Console.ReadLine();
