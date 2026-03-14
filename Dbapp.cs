@@ -24,7 +24,7 @@ namespace EmpDB
 		private List<Employee> employees = new List<Employee>();
 
 		// File names for data persistene
-		private const string EMPLOYEE_INPUT_FILE = "employess_input.txt";
+		private const string EMPLOYEE_INPUT_FILE = "employees_input.txt";
         private const string EMPLOYEE_OUTPUT_FILE = "employees_output.txt";
         public Dbapp()
         {
