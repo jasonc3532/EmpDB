@@ -15,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Diagnostics.Contracts;
 
 namespace EmpDB
 {
@@ -142,34 +143,23 @@ namespace EmpDB
 
         private void UpdateEmployeeRecord()
         {
-            //throw new NotImplementedException();
-            //throw new NotImplementedException();
-            Console.WriteLine();
-            Console.WriteLine("input email of account to Update/Delete: ");
-            string emailKey = Console.ReadLine();
-            //iterate through list and find string studentemail
-            //linq info found  in https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.firstordefault?view=net-10.0&redirectedfrom=MSDN#System_Linq_Enumerable_FirstOrDefault__1_System_Collections_Generic_IEnumerable___0__
-            Student studentToUpdate = students.FirstOrDefault(emailindex => emailindex.EmailAddress == emailKey);
+            //use the util method find to determine that the employee to add
+            //is not already in the database- if they are print an error mesage in return
+            string email = string.Empty;
+            Employee emp = FindEmployeeRecord(out email);
             //if email matched and found  in list
-            if (studentToUpdate != null)
+            if (emp != null)
             {
                 //delete by default since both operation types require it
-                Console.WriteLine($"Found email {emailKey}");
-                students.Remove(studentToUpdate);
-                Console.WriteLine($"removed account {emailKey} from database! ");
-                //if it was update option and not delete
-                if (flag == "update")
-                {
-                    //run new  instance of database
-                    CreateNewStudentRecord();
-                    Console.WriteLine($"Sucessfully updated {emailKey}! ");
-                }
-
+                Console.WriteLine($"Found email {email}");
+				//maybe invoke ouor method for cleaner output
+                employees.Remove(emp);
+                Console.WriteLine($"Updating {email} account! ");
+                //run update procedure
+                //run new  instance of database
+                CreateNewEmployeeRecord();
+                Console.WriteLine($"Sucessfully updated {email}! ");
             }//do nothing if no email match  in list
-            else
-            {
-                Console.WriteLine("email not  found");
-            }
         }
 
         private void ProcessPayroll()
@@ -211,43 +201,60 @@ namespace EmpDB
                 Console.WriteLine("enter Last name: ");
                 string lastName = Console.ReadLine();
                 Console.Write("enter social security number: ");
-                int ssn = int.Parse(Console.ReadLine());
+                string socialSecurityNumber = Console.ReadLine();
 
-                Console.Write("[S]alary, [H]ourly, [C]omission, or comission [P]lus base pay ");
+                Console.Write("enter pay type letter: [S]alary, [H]ourly, [C]omission, or comission [P]lus base pay ");
                 char employeeType = GetUserSelection();
 
-                if (studentType == 'U' || studentType == 'u')
+                switch (employeeType)
                 {
-                    //
-                    Console.WriteLine();
-                    Console.WriteLine("[1]freshman [2] sophomore [3] junior [4] senior");
-                    Console.WriteLine("Enter year rank in school: ");
-                    YearRank rank = (YearRank)int.Parse(Console.ReadLine());
-                    //create the nuew student objec and add it to list
-                    //2 loc way to make a stud insert
-                    Console.Write("enter major: ");
-                    string major = Console.ReadLine();
-
-                    stu = new Undergrad(firstName, lastName, gpa, email, rank, major);
-                    students.Add(stu);
-
-                }
-                else if (studentType == 'G' || studentType == 'g')
-                {
-                    //enter credit hours
-                    //decimal credit is decimal parse console readline
-                    Console.Write("enter credit hours: ");
-                    decimal credit = decimal.Parse(Console.ReadLine());
-                    Console.Write("enter advisor name: ");
-                    string advisor = Console.ReadLine();
-
-                    stu = new GradStudent(firstName, lastName, gpa, email, credit, advisor);
-
-                    students.Add(stu);
-                }
-                else
-                {
-                    Console.WriteLine($"Error: Student with email {email} already exists");
+					case 'S':
+					case 's':
+						Console.WriteLine();
+						Console.WriteLine("Enter weekly salary amount:");
+						int weeklySalary = int.Parse(Console.ReadLine());
+						//create the new employee object and add it to the list
+						emp = new SalariedEmployee(firstName, lastName, socialSecurityNumber, email, weeklySalary);
+						employees.Add(emp);
+						break;
+					case 'H':
+					case 'h':
+                        Console.WriteLine();
+                        Console.WriteLine("Enter hourly Wage amount:");
+                        decimal hourlyWage = decimal.Parse(Console.ReadLine());
+						Console.WriteLine("Enter hours worked. 0  if none.");
+						decimal hoursWorked = decimal.Parse(Console.ReadLine());
+                        //create the new employee object and add it to the list
+                        emp = new HourlyEmployee(firstName, lastName, socialSecurityNumber, email, hourlyWage, hoursWorked);
+                        employees.Add(emp);
+                        break;
+                    case 'C':
+					case 'c':
+                        Console.WriteLine();
+                        Console.WriteLine("Enter comission percentage:");
+                        decimal commissionRate = decimal.Parse(Console.ReadLine());
+						Console.WriteLine("Enter total gross sales if any. 0  if none.");
+						decimal grossSales = decimal.Parse(Console.ReadLine());	
+                        //create the new employee object and add it to the list
+                        emp = new CommissionEmployee(firstName, lastName, socialSecurityNumber, email, grossSales, commissionRate);
+                        employees.Add(emp);
+                        break;
+					case 'P':
+					case 'p':
+                        Console.WriteLine();
+                        Console.WriteLine("Enter comission percentage:");
+                        decimal commissionRated = decimal.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter total gross sales if any. 0  if none.");
+                        decimal grossSale = decimal.Parse(Console.ReadLine());
+						Console.WriteLine("enter base weekly salary");
+						decimal baseSalary = decimal.Parse(Console.ReadLine());
+                        //create the new employee object and add it to the list
+                        emp = new BasePlusCommissionEmployee(firstName, lastName,socialSecurityNumber,email, grossSale,commissionRated, baseSalary);
+                        employees.Add(emp);
+                        break;
+                    default:
+						Console.WriteLine($"Error: Student with email {email} already exists");
+						break;
                 }
             }
             else

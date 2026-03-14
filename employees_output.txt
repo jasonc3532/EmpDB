@@ -4,7 +4,6 @@ Last Name: Statico
 Email: chucks@uw.edu
 SSN: 123-123-1234
 Weekly Salary: $3000.24
-Full Weeks worked since last pay: 2
 Amount Owed: $1,153
 
 Emp Type: Hourly
