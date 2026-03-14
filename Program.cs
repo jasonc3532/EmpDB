@@ -13,7 +13,7 @@ namespace EmpDB
         {
             //if(Program._DEBUG_MODE_)TestMain();
 
-            DbApp db = new DbApp(); //there will only ever be one of these
+            Dbapp db = new Dbapp(); //there will only ever be one of these
             db.GoDataBase();
         }
     }
