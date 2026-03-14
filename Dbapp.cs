@@ -173,12 +173,27 @@ namespace EmpDB
 
         private char GetUserSelection()
         {
-            throw new NotImplementedException();
+			ConsoleKeyInfo key = Console.ReadKey();
+			return key.KeyChar;
         }
 
         private void DisplayMainMenu()
         {
-            throw new NotImplementedException();
+			Console.Write(@"
+    ************************************
+    *****   Employee Payroll DB    *****
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    [C]reate a new employee record
+    [F]ind an employee record
+    [P]rint all employee records
+    [R]un payroll (process payments)
+    [U]pdate an existing employee record
+    [D]elete an existing employee record
+    [E]xit the app - Saving all changes
+    [Q]uit the app - Discard changes
+    [S]ave all changes and continue
+    ************************************
+    User selection: ");
         }
 
         //can only be done if student is aready in db
@@ -293,7 +308,7 @@ namespace EmpDB
 		{
 			string email = string.Empty;
 			Employee emp = FindEmployeeRecord(out email);
-			if (emp != null)
+			if (emp == null)
 			{
 				Console.WriteLine("Cannot Delete Employee -- Not found");
 				return;
