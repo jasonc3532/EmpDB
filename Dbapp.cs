@@ -7,6 +7,7 @@
 // Date ------- Developer -- Description
 // 2026-03-13  Chang       Initial creation from StudentDB template
 // 2026-03-13  Chang       CRUD operations and payroll processing
+// 2026-03-13  Axec	       Fleshed out CRUD  functions, input and output file read/write
 
 using System;
 using System.Collections.Generic;
@@ -52,7 +53,7 @@ namespace EmpDB
 					int workedWeeks = int.Parse(inFile.ReadLine());
 					//may  not be necessary for Ipayable but adding anyway for now
 					decimal amountOwed= decimal.Parse(inFile.ReadLine());
-					Employee salaried = new SalariedEmployee(first, last, ssn, email, weeklySalary);
+					Employee salaried = new SalariedEmployee(first, last, ssn, email, weeklySalary, workedWeeks, amountOwed);
 					employees.Add(salaried);
 				}
 				else if (employeeType == "HourlyEmployee")
@@ -134,7 +135,8 @@ namespace EmpDB
 						break;
 					case 'E':
 					case 'e':
-						SaveEmployeeDataToOutputFile();
+						
+                        SaveEmployeeDataToOutputFile();
 						Environment.Exit(0);
 						break;
 					case 'Q':
@@ -143,7 +145,8 @@ namespace EmpDB
 						break;
 					case 'S':
 					case 's':
-						SaveEmployeeDataToOutputFile();
+						
+                        SaveEmployeeDataToOutputFile();
 						break;
 					default:
 						Console.Write($"\n\nERROR: {selection} is not a valid choice. Select again: ");
@@ -162,7 +165,7 @@ namespace EmpDB
             //use the file object same as any oher output stream
             foreach (Employee emp in employees)
             {
-                outFile.Write(emp.ToString());
+                outFile.Write(emp.ToStringForOutputFile());
                 Console.WriteLine(emp);
             }
 
@@ -192,6 +195,18 @@ namespace EmpDB
                 CreateNewEmployeeRecord();
                 Console.WriteLine($"Sucessfully updated {email}! ");
             }//do nothing if no email match  in list
+        }
+
+		//we'lll make this function the onethat writes over output file to input file later when we get formatting down 
+        private void LoadEmployeeDataPersistence()
+        {
+			//make the file and associate objects
+			StreamWriter outFile = new StreamWriter(EMPLOYEE_INPUT_FILE);
+			foreach (Employee emp in employees)
+			{
+				outFile.Write(emp.ToStringForOutputFile());
+				Console.WriteLine(emp);
+			}
         }
 
         private void ProcessPayroll()
@@ -271,8 +286,10 @@ namespace EmpDB
 						Console.WriteLine();
 						Console.WriteLine("Enter weekly salary amount:");
 						int weeklySalary = int.Parse(Console.ReadLine());
+						int workedWeeks = int.Parse(Console.ReadLine());	
+						decimal amountOwed = decimal.Parse(Console.ReadLine());
 						//create the new employee object and add it to the list
-						emp = new SalariedEmployee(firstName, lastName, socialSecurityNumber, email, weeklySalary);
+						emp = new SalariedEmployee(firstName, lastName, socialSecurityNumber, email, weeklySalary, workedWeeks, amountOwed);
 						employees.Add(emp);
 						break;
 					case 'H':

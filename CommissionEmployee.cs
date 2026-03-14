@@ -79,7 +79,7 @@ namespace EmpDB
 			string str = this.GetType().Name + "\n";
 			str += base.ToStringForOutputFile() + "\n";
 			str += $"{GrossSales:F2}\n";
-			str += $"{CommissionRate:F2}";
+			str += $"{CommissionRate:F2} \n";
 			return str;
 		}
 	}

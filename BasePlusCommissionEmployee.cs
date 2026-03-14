@@ -63,9 +63,10 @@ namespace EmpDB
 
 		public override string ToStringForOutputFile()
 		{
-			string str = this.GetType().Name + "\n";
-			str += base.ToStringForOutputFile() + "\n";
-			str += $"{baseSalary:F2}";
+            //editing out below line, was messing output file, not deleting just in case it breaks someone else's stuff
+			//string str = this.GetType().Name + "\n";
+			string str = base.ToStringForOutputFile();
+			str += $"{baseSalary:F2}\n";
 			return str;
 		}
 	}

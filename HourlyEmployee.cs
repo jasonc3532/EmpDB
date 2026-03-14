@@ -90,7 +90,7 @@ namespace EmpDB
 			string str = this.GetType().Name + "\n";
 			str += base.ToStringForOutputFile() + "\n";
 			str += $"{Wage:F2}\n";
-			str += $"{Hours:F2}";
+			str += $"{Hours:F2}\n";
 			return str;
 		}
 	}
