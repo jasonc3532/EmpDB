@@ -1,0 +1,33 @@
+Emp Type: Salary
+First Name: Chuck
+Last Name: Statico
+SSN: 123-123-1234
+Salary: $60,000.12
+Full Weeks worked since last pay: 2
+Amount Owed: $1,153
+
+Emp Type: Hourly
+First Name: Hasan
+Last Name: Hourson
+SSN: 123-123-1234
+Hourly Rate: $22.20
+Hours Worked: 43.5
+Amount Owed: $99.9
+
+Emp Type: Commission
+First Name: Mohammad
+Last Name:  Commisianti
+SSN: 123-123-1234
+Commission %: 12
+Sales Generated: $10,000.20
+Amount Owed: $1,200.03
+
+Emp Type: Basepay_and_Comission
+Firt Name: Sandra
+Last Name: Base o'Comi
+SSN: 123-123-1234
+Comission%: 12
+Hourly Rate: $15
+Sales Generated: $5000.23
+Hours Worked: 20
+Amount Owed: $400
