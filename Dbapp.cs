@@ -136,10 +136,25 @@ namespace EmpDB
 		}
 		// Find operation will search the current list for the resence of a given email
 		// address and return the Employee record if found, other wise return null.
-		private void FindEmployeeRecord(out string email)
+		private Employee FindEmployeeRecord(out string email)
 		{
-			throw new NotImplementedException();
+			Console.WriteLine("\nENTER the email address to serach for: ");
+			email = Console.ReadLine();
+
+			// iterate through the list looking for the search
+			foreach (Employee emp in employees)
+			{ 
+				if(email==emp.EmailAddress)
+				{
+					// serach email WAS FOUND - report back and return the object
+					Console.WriteLine($"Found email address: {emp.EmailAddress}\n");
+					return emp;
+				}
+			}
+			Console.WriteLine($"{email} NOT FOUND");
+			return null;
 		}
+
 		// Deletes an existing employee record from DB
 		// Uses email as primary key.
 		private void DeleteEmployeeRecord()
