@@ -175,7 +175,7 @@ namespace EmpDB
         }
 		
 		//checks for record using findemployeerecord, if exists, deletes it using deletemployee record
-		//then runs through create student record to replace everything except for the email
+		//then runs through create employee record to replace everything except for the email
         private void UpdateEmployeeRecord()
         {
             //use the util method find to determine that the employee to add
@@ -236,13 +236,13 @@ namespace EmpDB
 			Console.WriteLine($"TOTAL PAYROLL: {totalPayroll:C}");
         }
         
-		//output all student records to console
+		//output all employee records to console
 		//very simple and just reads from list memory buffer
 		private void PrintAllRecords()
         {
             foreach (Employee emp in employees)
             {
-                Console.WriteLine("++++++STUDENT RECORD++++++");
+                Console.WriteLine("++++++EMPLOYEE RECORD++++++");
                 Console.WriteLine(emp);
             }
         }
@@ -275,7 +275,7 @@ namespace EmpDB
     User selection: ");
         }
 
-        //can only be done if student is aready in db, uses findemployeerecord to check and aborts
+        //can only be done if employee is aready in db, uses findemployeerecord to check and aborts
 		//if it exists already through email
         private void CreateNewEmployeeRecord()
         {
@@ -350,13 +350,13 @@ namespace EmpDB
                         employees.Add(emp);
                         break;
                     default:
-						Console.WriteLine($"Error: Student with email {email} already exists");
+						Console.WriteLine($"Error: Employee with email {email} already exists");
 						break;
                 }
             }
             else
             {
-                Console.WriteLine($"error: student with email {email} alread exists cannot create duplicate record.");
+                Console.WriteLine($"error: Employee with email {email} alread exists cannot create duplicate record.");
             }
 
 
