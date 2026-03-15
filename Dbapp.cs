@@ -211,7 +211,29 @@ namespace EmpDB
 
         private void ProcessPayroll()
         {
-            throw new NotImplementedException();
+			Console.WriteLine("=== PAYROLL PROCESSING ===\n");
+
+			decimal totalPayroll = 0;   // running total for all employee pay
+
+			foreach (Employee employee in employees)
+			{
+				Console.WriteLine(employee);
+
+				// optional special raise for BasePlusCommissionEmployee
+				if (employee is BasePlusCommissionEmployee basePlusEmployee)
+				{
+					basePlusEmployee.BaseSalary *= 1.10M;
+					Console.WriteLine($"New base salary with 10% increase: {basePlusEmployee.BaseSalary:C}");
+				}
+
+				decimal earnings = employee.Earnings();   // get employee pay
+				Console.WriteLine($"Earned: {earnings:C}");
+				Console.WriteLine();
+
+				totalPayroll += earnings;  // add to total payroll
+			}
+
+			Console.WriteLine($"TOTAL PAYROLL: {totalPayroll:C}");
         }
         
 		//output all student records to console
